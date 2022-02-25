@@ -1,11 +1,9 @@
 {
-  "name": "@paulrberg/solidity-template",
+  "name": "@metaio/meta-cms-contracts",
   "description": "Template for writing Solidity smart contracts",
   "version": "1.0.0",
-  "author": {
-    "name": "Paul Razvan Berg",
-    "url": "https://paulrberg.com"
-  },
+  "author": "Meta Network Group",
+  "license": "LGPL-3.0-or-later",
   "devDependencies": {
     "@codechecks/client": "^0.1.12",
     "@commitlint/cli": "^16.2.1",
@@ -56,7 +54,8 @@
     "typescript": "^4.5.5"
   },
   "files": [
-    "/contracts"
+    "/contracts",
+    "/types"
   ],
   "keywords": [
     "blockchain",
