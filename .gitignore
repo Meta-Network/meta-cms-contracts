@@ -8,6 +8,7 @@
 **/artifacts
 **/build
 **/cache
+**/.openzeppelin
 **/coverage
 **/.coverage_artifacts
 **/.coverage_cache

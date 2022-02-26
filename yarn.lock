@@ -1550,6 +1550,62 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@metaio/meta-cms-contracts@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@metaio/meta-cms-contracts@workspace:."
+  dependencies:
+    "@codechecks/client": ^0.1.12
+    "@commitlint/cli": ^16.2.1
+    "@commitlint/config-conventional": ^16.2.1
+    "@ethersproject/abi": ^5.5.0
+    "@ethersproject/abstract-signer": ^5.5.0
+    "@ethersproject/bignumber": ^5.5.0
+    "@ethersproject/bytes": ^5.5.0
+    "@ethersproject/providers": ^5.5.3
+    "@nomiclabs/hardhat-ethers": ^2.0.4
+    "@nomiclabs/hardhat-etherscan": ^3.0.0
+    "@nomiclabs/hardhat-waffle": ^2.0.2
+    "@openzeppelin/contracts-upgradeable": ^4.5.1
+    "@openzeppelin/hardhat-upgrades": ^1.14.0
+    "@typechain/ethers-v5": ^9.0.0
+    "@typechain/hardhat": ^4.0.0
+    "@types/chai": ^4.3.0
+    "@types/fs-extra": ^9.0.13
+    "@types/mocha": ^9.1.0
+    "@types/node": ^17.0.18
+    "@typescript-eslint/eslint-plugin": ^5.12.0
+    "@typescript-eslint/parser": ^5.12.0
+    chai: ^4.3.6
+    commitizen: ^4.2.4
+    cross-env: ^7.0.3
+    cz-conventional-changelog: ^3.3.0
+    dotenv: ^16.0.0
+    eslint: ^8.9.0
+    eslint-config-prettier: ^8.3.0
+    ethereum-waffle: ^3.4.0
+    ethers: ^5.5.4
+    fs-extra: ^10.0.0
+    hardhat: ^2.8.4
+    hardhat-gas-reporter: ^1.0.8
+    husky: ^7.0.4
+    lint-staged: ^12.3.4
+    lodash: ^4.17.21
+    mocha: ^9.2.0
+    pinst: ^2.1.6
+    prettier: ^2.5.1
+    prettier-plugin-solidity: ^1.0.0-dev.21
+    shelljs: ^0.8.5
+    shx: ^0.3.4
+    solhint: ^3.3.7
+    solhint-plugin-prettier: ^0.0.5
+    solidity-coverage: ^0.7.20
+    ts-generator: ^0.1.1
+    ts-node: ^10.5.0
+    typechain: ^7.0.0
+    typescript: ^4.5.5
+  languageName: unknown
+  linkType: soft
+
 "@metamask/eth-sig-util@npm:^4.0.0":
   version: 4.0.0
   resolution: "@metamask/eth-sig-util@npm:4.0.0"
@@ -1642,59 +1698,43 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@paulrberg/solidity-template@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "@paulrberg/solidity-template@workspace:."
+"@openzeppelin/contracts-upgradeable@npm:^4.5.1":
+  version: 4.5.1
+  resolution: "@openzeppelin/contracts-upgradeable@npm:4.5.1"
+  checksum: 9dc0adeeae384e3b8bfa7d688f75020687ea19948b323f6a94c349b5aeeede6924289190f3a719144163e4048ddea29354a524943072a38d7dba891d2efceba2
+  languageName: node
+  linkType: hard
+
+"@openzeppelin/hardhat-upgrades@npm:^1.14.0":
+  version: 1.14.0
+  resolution: "@openzeppelin/hardhat-upgrades@npm:1.14.0"
   dependencies:
-    "@codechecks/client": ^0.1.12
-    "@commitlint/cli": ^16.2.1
-    "@commitlint/config-conventional": ^16.2.1
-    "@ethersproject/abi": ^5.5.0
-    "@ethersproject/abstract-signer": ^5.5.0
-    "@ethersproject/bignumber": ^5.5.0
-    "@ethersproject/bytes": ^5.5.0
-    "@ethersproject/providers": ^5.5.3
-    "@nomiclabs/hardhat-ethers": ^2.0.4
-    "@nomiclabs/hardhat-etherscan": ^3.0.0
-    "@nomiclabs/hardhat-waffle": ^2.0.2
-    "@typechain/ethers-v5": ^9.0.0
-    "@typechain/hardhat": ^4.0.0
-    "@types/chai": ^4.3.0
-    "@types/fs-extra": ^9.0.13
-    "@types/mocha": ^9.1.0
-    "@types/node": ^17.0.18
-    "@typescript-eslint/eslint-plugin": ^5.12.0
-    "@typescript-eslint/parser": ^5.12.0
-    chai: ^4.3.6
-    commitizen: ^4.2.4
-    cross-env: ^7.0.3
-    cz-conventional-changelog: ^3.3.0
-    dotenv: ^16.0.0
-    eslint: ^8.9.0
-    eslint-config-prettier: ^8.3.0
-    ethereum-waffle: ^3.4.0
-    ethers: ^5.5.4
-    fs-extra: ^10.0.0
-    hardhat: ^2.8.4
-    hardhat-gas-reporter: ^1.0.8
-    husky: ^7.0.4
-    lint-staged: ^12.3.4
-    lodash: ^4.17.21
-    mocha: ^9.2.0
-    pinst: ^2.1.6
-    prettier: ^2.5.1
-    prettier-plugin-solidity: ^1.0.0-dev.21
-    shelljs: ^0.8.5
-    shx: ^0.3.4
-    solhint: ^3.3.7
-    solhint-plugin-prettier: ^0.0.5
-    solidity-coverage: ^0.7.20
-    ts-generator: ^0.1.1
-    ts-node: ^10.5.0
-    typechain: ^7.0.0
-    typescript: ^4.5.5
-  languageName: unknown
-  linkType: soft
+    "@openzeppelin/upgrades-core": ^1.12.0
+    chalk: ^4.1.0
+  peerDependencies:
+    "@nomiclabs/hardhat-ethers": ^2.0.0
+    hardhat: ^2.0.2
+  bin:
+    migrate-oz-cli-project: dist/scripts/migrate-oz-cli-project.js
+  checksum: 694c9678aedf2c40478e433a969ead9c3431916f60d4519d615d1488ade3b5712da2eba966f32eb168831e60bf49cb598ccd22270c7980afaada6491fa296ede
+  languageName: node
+  linkType: hard
+
+"@openzeppelin/upgrades-core@npm:^1.12.0":
+  version: 1.12.0
+  resolution: "@openzeppelin/upgrades-core@npm:1.12.0"
+  dependencies:
+    bn.js: ^5.1.2
+    cbor: ^8.0.0
+    chalk: ^4.1.0
+    compare-versions: ^4.0.0
+    debug: ^4.1.1
+    ethereumjs-util: ^7.0.3
+    proper-lockfile: ^4.1.1
+    solidity-ast: ^0.4.15
+  checksum: c1e3418921a10f68ceffed60b8c9c2882e59929ab8a9e6bfb097a778a39c4b176c542594f8284b3989872e372a843d8b4c2f4c553d9ce48f232ee34edb0e6458
+  languageName: node
+  linkType: hard
 
 "@resolver-engine/core@npm:^0.3.3":
   version: 0.3.3
@@ -4254,6 +4294,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"cbor@npm:^8.0.0":
+  version: 8.1.0
+  resolution: "cbor@npm:8.1.0"
+  dependencies:
+    nofilter: ^3.1.0
+  checksum: a90338435dc7b45cc01461af979e3bb6ddd4f2a08584c437586039cd5f2235014c06e49d664295debbfb3514d87b2f06728092ab6aa6175e2e85e9cd7dc0c1fd
+  languageName: node
+  linkType: hard
+
 "chai@npm:^4.3.6":
   version: 4.3.6
   resolution: "chai@npm:4.3.6"
@@ -4761,6 +4810,13 @@ __metadata:
     array-ify: ^1.0.0
     dot-prop: ^5.1.0
   checksum: fb71d70632baa1e93283cf9d80f30ac97f003aabee026e0b4426c9716678079ef5fea7519b84d012cbed938c476493866a38a79760564a9e21ae9433e40e6f0d
+  languageName: node
+  linkType: hard
+
+"compare-versions@npm:^4.0.0":
+  version: 4.1.3
+  resolution: "compare-versions@npm:4.1.3"
+  checksum: 54460756ab2d62f8a9d672db249b248fec7ca41c3e8ed242925e2f2257793ad3e83cecb2cdfd60b46a3aabc962a3a4cbf37a4b928c8f30517822d2bde937a3d1
   languageName: node
   linkType: hard
 
@@ -6614,6 +6670,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ethereumjs-util@npm:^7.0.3":
+  version: 7.1.4
+  resolution: "ethereumjs-util@npm:7.1.4"
+  dependencies:
+    "@types/bn.js": ^5.1.0
+    bn.js: ^5.1.2
+    create-hash: ^1.1.2
+    ethereum-cryptography: ^0.1.3
+    rlp: ^2.2.4
+  checksum: ccfd9208bfe9205af124a9138c5a90db46cd2fcacf4b80f17f67915381c03253aa2fb90ead9e0b53d9a6fcfeed4310e5dfa8dc516ca2846d16baf81d605cd8c2
+  languageName: node
+  linkType: hard
+
 "ethereumjs-util@npm:^7.1.0":
   version: 7.1.0
   resolution: "ethereumjs-util@npm:7.1.0"
@@ -8068,6 +8137,13 @@ fsevents@~2.1.1:
   version: 4.2.6
   resolution: "graceful-fs@npm:4.2.6"
   checksum: 792e64aafda05a151289f83eaa16aff34ef259658cefd65393883d959409f5a2389b0ec9ebf28f3d21f1b0ddc8f594a1162ae9b18e2b507a6799a70706ec573d
+  languageName: node
+  linkType: hard
+
+"graceful-fs@npm:^4.2.4":
+  version: 4.2.9
+  resolution: "graceful-fs@npm:4.2.9"
+  checksum: 68ea4e07ff2c041ada184f9278b830375f8e0b75154e3f080af6b70f66172fabb4108d19b3863a96b53fc068a310b9b6493d86d1291acc5f3861eb4b79d26ad6
   languageName: node
   linkType: hard
 
@@ -11103,6 +11179,13 @@ fsevents@~2.1.1:
   languageName: node
   linkType: hard
 
+"nofilter@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "nofilter@npm:3.1.0"
+  checksum: 58aa85a5b4b35cbb6e42de8a8591c5e338061edc9f3e7286f2c335e9e9b9b8fa7c335ae45daa8a1f3433164dc0b9a3d187fa96f9516e04a17a1f9ce722becc4f
+  languageName: node
+  linkType: hard
+
 "nopt@npm:3.x":
   version: 3.0.6
   resolution: "nopt@npm:3.0.6"
@@ -12047,6 +12130,17 @@ fsevents@~2.1.1:
   dependencies:
     asap: ~2.0.6
   checksum: 89b71a56154ed7d66a73236d8e8351a9c59adddba3929ecc845f75421ff37fc08ea0c67ad76cd5c0b0d81812c7d07a32bed27e7df5fcc960c6d68b0c1cd771f7
+  languageName: node
+  linkType: hard
+
+"proper-lockfile@npm:^4.1.1":
+  version: 4.1.2
+  resolution: "proper-lockfile@npm:4.1.2"
+  dependencies:
+    graceful-fs: ^4.2.4
+    retry: ^0.12.0
+    signal-exit: ^3.0.2
+  checksum: 00078ee6a61c216a56a6140c7d2a98c6c733b3678503002dc073ab8beca5d50ca271de4c85fca13b9b8ee2ff546c36674d1850509b84a04a5d0363bcb8638939
   languageName: node
   linkType: hard
 
@@ -13576,6 +13670,13 @@ resolve@1.1.x:
   bin:
     solhint: solhint.js
   checksum: 140a4660b691ea78aa7de19aca2123991fb4f9bc7be574e1573ae428b356e12919805df56c2892ddbdd031a4a4db477a81425ad85aac6672f3fb73f4887c2abb
+  languageName: node
+  linkType: hard
+
+"solidity-ast@npm:^0.4.15":
+  version: 0.4.30
+  resolution: "solidity-ast@npm:0.4.30"
+  checksum: a68cbfe7b29cd2f04963413c8eff74f3aa9282b17457681eb6ea825d171246a54fdd94be12a05608a0c8491c68b1230daaef3d964cd61676ea8c182c507237d2
   languageName: node
   linkType: hard
 
