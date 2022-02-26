@@ -12,3 +12,10 @@ task("deploy:Greeter")
     await greeter.deployed();
     console.log("Greeter deployed to: ", greeter.address);
   });
+
+task("upgrade:Greeter").setAction(async function (_, { ethers, upgrades }) {
+  const greeterV1 = await ethers.getContractAt("Greeter", "0x7AedaD5614470eBC0eA62B33D1cEF620043A2262");
+  const greeterV2Factory = await ethers.getContractFactory("GreeterV2");
+  await upgrades.upgradeProxy(greeterV1, greeterV2Factory);
+  console.log("Greeter upgraded");
+});
