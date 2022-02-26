@@ -1,5 +1,6 @@
 import "@nomiclabs/hardhat-waffle";
 import "@nomiclabs/hardhat-etherscan";
+import "@openzeppelin/hardhat-upgrades";
 import "@typechain/hardhat";
 import "hardhat-gas-reporter";
 import "solidity-coverage";
@@ -30,6 +31,7 @@ const chainIds = {
   arbitrumOne: 42161,
   avalanche: 43114,
   bsc: 56,
+  bsctest: 97,
   goerli: 5,
   hardhat: 31337,
   kovan: 42,
@@ -40,18 +42,50 @@ const chainIds = {
   ropsten: 3,
 };
 
+function getInfuraUrl(network: keyof typeof chainIds): string {
+  return `https://${network}.infura.io/v3/${infuraApiKey}`;
+}
+
+const networkUrls: { [key in keyof typeof chainIds]: string } = {
+  arbitrumOne: getInfuraUrl("arbitrumOne"),
+  avalanche: getInfuraUrl("avalanche"),
+  bsc: "https://bsc-dataseed.binance.org/",
+  bsctest: "https://data-seed-prebsc-1-s1.binance.org:8545/",
+  goerli: getInfuraUrl("goerli"),
+  hardhat: "http://127.0.0.1:8545/",
+  kovan: getInfuraUrl("kovan"),
+  mainnet: getInfuraUrl("mainnet"),
+  optimism: getInfuraUrl("optimism"),
+  polygon: getInfuraUrl("polygon"),
+  rinkeby: getInfuraUrl("rinkeby"),
+  ropsten: getInfuraUrl("ropsten"),
+};
+
 function getChainConfig(network: keyof typeof chainIds): NetworkUserConfig {
-  const url: string = "https://" + network + ".infura.io/v3/" + infuraApiKey;
   return {
     accounts: {
-      count: 10,
+      count: 1,
       mnemonic,
       path: "m/44'/60'/0'/0",
     },
     chainId: chainIds[network],
-    url,
+    url: networkUrls[network],
   };
 }
+
+const networks: Omit<{ [key in keyof typeof chainIds]: NetworkUserConfig }, "hardhat"> = {
+  arbitrumOne: getChainConfig("arbitrumOne"),
+  avalanche: getChainConfig("avalanche"),
+  bsc: getChainConfig("bsc"),
+  bsctest: getChainConfig("bsctest"),
+  goerli: getChainConfig("goerli"),
+  kovan: getChainConfig("kovan"),
+  mainnet: getChainConfig("mainnet"),
+  optimism: getChainConfig("optimism"),
+  polygon: getChainConfig("polygon"),
+  rinkeby: getChainConfig("rinkeby"),
+  ropsten: getChainConfig("ropsten"),
+};
 
 const config: HardhatUserConfig = {
   defaultNetwork: "hardhat",
@@ -60,6 +94,7 @@ const config: HardhatUserConfig = {
       arbitrumOne: process.env.ARBSCAN_API_KEY,
       avalanche: process.env.SNOWTRACE_API_KEY,
       bsc: process.env.BSCSCAN_API_KEY,
+      bscTestnet: process.env.BSCSCAN_API_KEY,
       goerli: process.env.ETHERSCAN_API_KEY,
       kovan: process.env.ETHERSCAN_API_KEY,
       mainnet: process.env.ETHERSCAN_API_KEY,
@@ -82,16 +117,7 @@ const config: HardhatUserConfig = {
       },
       chainId: chainIds.hardhat,
     },
-    arbitrumOne: getChainConfig("arbitrumOne"),
-    avalanche: getChainConfig("avalanche"),
-    bsc: getChainConfig("bsc"),
-    goerli: getChainConfig("goerli"),
-    kovan: getChainConfig("kovan"),
-    mainnet: getChainConfig("mainnet"),
-    optimism: getChainConfig("optimism"),
-    polygon: getChainConfig("polygon"),
-    rinkeby: getChainConfig("rinkeby"),
-    ropsten: getChainConfig("ropsten"),
+    ...networks,
   },
   paths: {
     artifacts: "./artifacts",
