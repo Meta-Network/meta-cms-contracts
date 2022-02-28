@@ -1,7 +1,7 @@
 {
   "name": "@metaio/meta-cms-contracts",
   "description": "Meta space CMS smart contracts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Meta Network Group",
   "license": "LGPL-3.0-or-later",
   "files": [
@@ -27,10 +27,10 @@
     "lint": "yarn lint:sol && yarn lint:ts && yarn prettier:check",
     "lint:sol": "solhint --config ./.solhint.json --max-warnings 0 \"contracts/**/*.sol\"",
     "lint:ts": "eslint --config ./.eslintrc.yaml --ignore-path ./.eslintignore --ext .js,.ts .",
-    "postinstall": "husky install",
     "postpublish": "pinst --enable",
     "prebuild": "rimraf lib",
     "prepack": "yarn run build",
+    "prepare": "husky install",
     "prepublishOnly": "pinst --disable",
     "prettier": "prettier --config ./.prettierrc.yaml --write \"**/*.{js,json,md,sol,ts}\"",
     "prettier:check": "prettier --check --config ./.prettierrc.yaml \"**/*.{js,json,md,sol,ts}\"",
@@ -97,7 +97,8 @@
   },
   "peerDependencies": {
     "@openzeppelin/contracts": "^4.5.0",
-    "@openzeppelin/contracts-upgradeable": "^4.5.0"
+    "@openzeppelin/contracts-upgradeable": "^4.5.0",
+    "ethers": "^5.5.0"
   },
   "peerDependenciesMeta": {
     "@openzeppelin/contracts": {
