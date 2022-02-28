@@ -1,12 +1,14 @@
 {
   "name": "@metaio/meta-cms-contracts",
   "description": "Meta space CMS smart contracts",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Meta Network Group",
   "license": "LGPL-3.0-or-later",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
     "/contracts",
-    "/types"
+    "/dist"
   ],
   "keywords": [
     "blockchain",
@@ -19,8 +21,8 @@
     "access": "public"
   },
   "scripts": {
-    "build": "yarn run clean && yarn run compile && yarn run typechain",
-    "clean": "shx rm -rf ./artifacts ./cache ./.openzeppelin ./coverage ./types ./coverage.json",
+    "build": "yarn run compile && yarn run typechain && yarn run tsc",
+    "clean": "shx rm -rf ./dist ./types ./artifacts ./cache ./.openzeppelin ./coverage ./coverage.json",
     "commit": "git-cz",
     "compile": "cross-env TS_NODE_TRANSPILE_ONLY=true hardhat compile",
     "coverage": "yarn typechain && hardhat coverage --solcoverjs ./.solcover.js --temp artifacts --testfiles \"test/**/*.ts\" && yarn typechain",
@@ -28,14 +30,14 @@
     "lint:sol": "solhint --config ./.solhint.json --max-warnings 0 \"contracts/**/*.sol\"",
     "lint:ts": "eslint --config ./.eslintrc.yaml --ignore-path ./.eslintignore --ext .js,.ts .",
     "postpublish": "pinst --enable",
-    "prebuild": "rimraf lib",
-    "prepack": "yarn run build",
+    "prepack": "yarn run clean && yarn run build",
     "prepare": "husky install",
     "prepublishOnly": "pinst --disable",
     "prettier": "prettier --config ./.prettierrc.yaml --write \"**/*.{js,json,md,sol,ts}\"",
     "prettier:check": "prettier --check --config ./.prettierrc.yaml \"**/*.{js,json,md,sol,ts}\"",
     "task": "hardhat",
     "test": "hardhat test",
+    "tsc": "tsc --project ./tsconfig.build.json",
     "typechain": "cross-env TS_NODE_TRANSPILE_ONLY=true hardhat typechain",
     "verify": "hardhat verify"
   },
