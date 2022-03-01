@@ -184,7 +184,7 @@ export function shouldBehaveLikeMetaSpaceManagement(): void {
     const domain: TypedDataDomain = { ...defaultDomain, verifyingContract: instance.address };
     const authMessage: MetaSpaceManagement.AuthorizationStruct = {
       user: address,
-      timestamp: BigNumber.from(Date.now()),
+      timestamp: Date.now(),
     };
     const authSignature = await this.signers.admin._signTypedData(domain, authorizationTypes, authMessage);
     const split = splitSignature(authSignature);
@@ -195,11 +195,12 @@ export function shouldBehaveLikeMetaSpaceManagement(): void {
       r: split.r,
       s: split.s,
     };
-    const signature = await this.signers.admin._signTypedData(domain, verificationTypes, message);
+    const serverSign = await this.signers.admin._signTypedData(domain, verificationTypes, message);
     await instance.grantRole(GLOBAL_ADMINISTRATOR_ROLE, address);
     await instance.grantRole(VERIFICATION_PAYLOAD_AUTHOR_ROLE, address);
 
-    expect(await instance["verifySignature((address,address,uint256,uint8,bytes32,bytes32),bytes)"](message, signature))
-      .is.true;
+    expect(
+      await instance["verifySignature((address,address,uint256,uint8,bytes32,bytes32),bytes)"](message, serverSign),
+    ).is.true;
   });
 }
